@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+<section class="main">
+    <header>
+        <a href="#"><img src="LOGO-gustapizza-def.png" class="logo" alt="Logo Gusta Pizza"></a>
+        <div class="toggle"></div>
+        <ul class="navigation">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Menu</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </header>
+    <div class="content">
+        <div class="text">
+            <h2>Gusta Pizza</h2>
+            <h5>Fast Fresh & Delicious</h5>
+            <p>Dégustez votre Pizza sans bouger de chez vous, grâce à notre livraison gratuite, <span>8</span> km autour de Ribérac</p>
+            <a href="#" class="btn">Commandez-Maintenant</a>
+        </div>
+        <div class="slider">
+            <div class="slides active">
+                <img src="pizzaDetoure.png" alt="Pizza">
+            </div>
+            <div class="slides">
+                <img src="PaniniD.png" alt="Panini">
+            </div>
+            <div class="slides">
+                <img src="pastaDetoure.png" alt="Pasta">
+            </div>
+            <div class="slides">
+                <img src="saladeDetoure.png" alt="Salade">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <ul class="sci">
+            <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+            <li><a href="#"><i class="fab fa-snapchat-square"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+        <div class="prevNext">
+            <!-- <p>Always Fresh</p> -->
+            <span class="prev"><i class="fal fa-arrow-left"></i></i></span>
+            <span class="next"><i class="fal fa-arrow-right"></i></span>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    //Toggle
+    const menutoggle = document.querySelector('.toggle');
+    const navigation = document.querySelector('.navigation');
+    menutoggle.onclick = function (){
+        menutoggle.classList.toggle('active')
+        navigation.classList.toggle('active')
+    }
+
+    // Slider
+    const slides = document.querySelectorAll('.slides');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+
+    i = 0;
+
+    function ActiveSlide(n){
+        for(slide of slides)
+        slide.classList.remove('active');
+        slides[n].classList.add('active');
+    }
+
+    // function for prev btn
+
+    prev.addEventListener('click', function(){
+        if(i == slides.length - 1){
+            i = 0;
+            ActiveSlide(i);
+        }
+        else {
+            i++;
+            ActiveSlide(i);
+        }
+    })
+
+    // function for next btn
+
+    next.addEventListener('click', function(){
+        if(i == 0){
+            i = slides.length - 1;
+            ActiveSlide(i);
+        }
+        else {
+            i--;
+            ActiveSlide(i);
+        }
+    })
+
+</script>
+
+</body>
+</html>
